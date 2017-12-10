@@ -39,9 +39,11 @@ public class TcsPOC extends HttpServlet {
 			//here sonoo is database name, root is username and password  
 			Statement stmt=con.createStatement();  
 			
-			ResultSet rs=stmt.executeQuery("select * from pocusertb");  
+			ResultSet rs=stmt.executeQuery("select * from pocusertb"); 
 			while(rs.next())  
-				result = rs.getString(1)+" -- "+rs.getString(2)+"  --  "+rs.getString(3) + "\n";
+			{
+				result += rs.getString(1)+" -- "+rs.getString(2)+"  --  "+rs.getString(3) + "\n";
+			}
 			
 			con.close();
 		}catch(Exception e){ System.out.println(e);} finally {
@@ -62,3 +64,7 @@ public class TcsPOC extends HttpServlet {
 	}
 
 }
+
+	
+
+	
